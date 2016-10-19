@@ -4,8 +4,10 @@ import { FormsModule } from '@angular/forms'
 import { AppComponent }  from './app.component';
 import { ListAlbumComponent } from './list-albums.component'
 import { NewAlbumComponent } from './new-album.component'
-import { SearchArtistComponent } from "./artist-search.component"
 import { ArtistPipe } from "./artist.pipe"
+import { GenrePipe } from "./genre.pipe"
+import { ShoppingCartComponent } from "./shopping.component"
+
 
 @NgModule({
   imports: [
@@ -16,8 +18,9 @@ import { ArtistPipe } from "./artist.pipe"
     AppComponent,
     ListAlbumComponent,
     NewAlbumComponent,
-    SearchArtistComponent,
-    ArtistPipe
+    ArtistPipe,
+    GenrePipe,
+    ShoppingCartComponent
   ],
   bootstrap:     [ AppComponent ],
 })
