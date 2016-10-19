@@ -19,7 +19,6 @@ export class NewAlbumComponent {
   @Output() newAlbum = new EventEmitter();
   addAlbum(artist: string, album: string, genre: string, price: number) {
     var testAlbum = new Album (artist, album, genre, price);
-    // masterAlbumList.push(testAlbum);
     this.newAlbum.emit(testAlbum);
   }
 }

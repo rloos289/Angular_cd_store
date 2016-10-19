@@ -7,6 +7,7 @@ import { Album } from './album.model'
   <h1>My First Angular 2 App</h1>
   <list-albums
     [childAlbumList]="masterAlbumList"
+    [childAlbumSearch]="masterArtistList"
   ></list-albums>
   <new-album
     (newAlbum)="addAlbum($event)"
@@ -25,9 +26,15 @@ export class AppComponent {
     new Album("Punch Brothers", "Whose Feeling Young Now", "Bluegrass", 10.00),
     new Album("Frank Turner", "Positive Songs for Negative People", "Rock", 10.00)
   ];
+    public masterArtistList: string[] = [
+      "Punch Brothers", "Saint Paul and the Broken Bones", "RL Burnside", "The Decemberists", "Frank Turner", "Gaslight Anthem"
+    ];
 
   addAlbum(newAlbumFromChild: Album) {
     this.masterAlbumList.push(newAlbumFromChild);
-    console.log(this.masterAlbumList);
+    if (!this.masterArtistList.includes(newAlbumFromChild.artist))
+    {
+      this.masterArtistList.push(newAlbumFromChild.artist);
+    }
   }
 }

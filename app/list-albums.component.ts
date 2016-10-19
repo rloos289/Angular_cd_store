@@ -4,7 +4,13 @@ import { Album } from './album.model'
 @Component ({
   selector: 'list-albums',
   template: `
-    <div *ngFor="let currentAlbum of childAlbumList">
+    <select (change)="onChange($event.target.value)" class="filter">
+      <option value="All" selected>All</option>
+      <option *ngFor="let artist of childAlbumSearch" value="{{ artist }}">
+        {{ artist }}
+      </option>
+    </select>
+    <div *ngFor="let currentAlbum of childAlbumList | filteredArtist:selectedArtist">
       <p>Artist: {{ currentAlbum.artist }}</p>
       <p>Album: {{ currentAlbum.album }}</p>
       <p>Genre: {{ currentAlbum.genre }}</p>
@@ -16,4 +22,10 @@ import { Album } from './album.model'
 
 export class ListAlbumComponent {
   @Input() childAlbumList: Album[];
+  @Input() childAlbumSearch: Album[];
+
+  public selectedArtist: string = "";
+  onChange(targetValue) {
+    this.selectedArtist = targetValue;
+  }
 }
