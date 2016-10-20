@@ -8,6 +8,7 @@ import { ArtistPipe } from "./artist.pipe"
 import { GenrePipe } from "./genre.pipe"
 import { ShoppingCartComponent } from "./shopping.component"
 import { CartPipe } from "./cart.pipe"
+import { PricePipe} from "./price.pipe"
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CartPipe } from "./cart.pipe"
     ArtistPipe,
     GenrePipe,
     ShoppingCartComponent,
-    CartPipe
+    CartPipe,
+    PricePipe
   ],
   bootstrap:     [ AppComponent ],
 })

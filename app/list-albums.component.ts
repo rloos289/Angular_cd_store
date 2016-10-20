@@ -19,7 +19,13 @@ import { Album } from './album.model';
         </option>
       </select>
 
-      <div *ngFor="let currentAlbum of childAlbumList | filteredArtist:selectedArtist | filteredGenre:selectedGenre ">
+      <select (change)="onChangePrice($event.target.value)" class="filter">
+        <option value="price" selected>Price</option>
+        <option value="low"> Low to high</option>
+        <option value="high"> High to low</option>
+      </select>
+
+      <div *ngFor="let currentAlbum of childAlbumList | filteredArtist:selectedArtist | filteredGenre:selectedGenre | filteredPrice:selectedPrice ">
         <p>Artist: {{ currentAlbum.artist }}</p>
         <p>Album: {{ currentAlbum.album }}</p>
         <p>Genre: {{ currentAlbum.genre }}</p>
@@ -48,8 +54,12 @@ export class ListAlbumComponent {
     this.selectedArtist = "Artist";
   }
 
+  public selectedPrice: string = "";
+  onChangePrice(targetValue) {
+    this.selectedPrice = targetValue;
+  }
+
   addCart(album: Album) {
     this.shoppingCartSender.emit(album);
-    console.log("button");
   }
 }
