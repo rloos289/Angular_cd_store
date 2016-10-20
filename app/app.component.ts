@@ -13,6 +13,7 @@ import { Album } from './album.model';
     [childAlbumList]="masterAlbumList"
     [childAlbumSearch]="masterArtistList"
     [childGenreSearch]="masterGenreList"
+    [childCartList]="shoppingCart"
   ></list-albums>
   <new-album
     (newAlbum)="addAlbum($event)"
@@ -45,9 +46,14 @@ export class AppComponent {
   ];
 
   addCart(newItemFromChild: Album) {
-    console.log("shopping cart" + this.shoppingCart);
     this.shoppingCart.push(newItemFromChild);
+    console.log(this.shoppingCart);
+    //this function is retroactivly changing previous Album's IDs
   }
+
+  // removeCart(shoppingCartChild: Album) {
+  //   this.shoppingCart.splice(shoppingCartChild)
+  // }
 
   addAlbum(newAlbumFromChild: Album) {
     this.masterAlbumList.push(newAlbumFromChild);

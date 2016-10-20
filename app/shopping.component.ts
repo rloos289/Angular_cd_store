@@ -9,7 +9,7 @@ import { Album } from './album.model';
       <h3 *ngIf="childShoppingCart.length >= 1">Total Cost: \${{childShoppingCart | cart}}</h3>
       <div *ngFor="let cartitem of childShoppingCart">
         <p>Album: {{ cartitem.album }}
-        <button (click)="removeFromCart">Remove</button></p>
+        <button (click)="removeFromCart(childShoppingCart,cartitem)">Remove</button></p>
       </div>
     </div>
   `
@@ -17,5 +17,10 @@ import { Album } from './album.model';
 
 export class ShoppingCartComponent {
   @Input() childShoppingCart: Album[];
+  @Output() removeAlbum = new EventEmitter();
 
+    removeFromCart(cartArray: Album[], cartitem) {
+      cartArray.splice(cartitem.id - 1, 1);
+      console.log(cartArray);
+    }
 }

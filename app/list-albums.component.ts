@@ -30,7 +30,7 @@ import { Album } from './album.model';
         <p>Album: {{ currentAlbum.album }}</p>
         <p>Genre: {{ currentAlbum.genre }}</p>
         <p>Price: $\{{ currentAlbum.price }}</p>
-        <button (click)="addCart(currentAlbum)">Add to Cart</button>
+        <button (click)="addCart(currentAlbum.artist, currentAlbum.album, currentAlbum.genre, currentAlbum.price)">Add to Cart</button>
         <hr>
       </div>
     </div>
@@ -41,6 +41,7 @@ export class ListAlbumComponent {
   @Input() childAlbumList: Album[];
   @Input() childAlbumSearch: Album[];
   @Input() childGenreSearch: Album[];
+  @Input() childCartList: Album[];
   @Output() shoppingCartSender = new EventEmitter();
 
   public selectedArtist: string = "";
@@ -59,7 +60,9 @@ export class ListAlbumComponent {
     this.selectedPrice = targetValue;
   }
 
-  addCart(album: Album) {
-    this.shoppingCartSender.emit(album);
+  addCart(artist: string, album: string, genre: string, price: number) {
+    var testAlbum = new Album (artist, album, genre, price);
+    testAlbum.id = this.childCartList.length + 1;
+    this.shoppingCartSender.emit(testAlbum);
   }
 }
