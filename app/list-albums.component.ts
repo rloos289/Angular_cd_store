@@ -11,7 +11,7 @@ import { Album } from './album.model';
           {{ artist }}
         </option>
       </select>
-
+      <span>or</span>
       <select (change)="onChangeGenre($event.target.value)" class="filter">
         <option value="Genre" selected>Genre</option>
         <option *ngFor="let genre of childGenreSearch" value="{{ genre }}">

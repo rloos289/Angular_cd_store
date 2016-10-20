@@ -8,7 +8,8 @@ import { Album } from './album.model';
       <h2>Current Shopping Cart:</h2>
       <h3 *ngIf="childShoppingCart.length >= 1">Total Cost: \${{childShoppingCart | cart}}</h3>
       <div *ngFor="let cartitem of childShoppingCart">
-        <p>Album: {{ cartitem.album }}</p>
+        <p>Album: {{ cartitem.album }}
+        <button (click)="removeFromCart">Remove</button></p>
       </div>
     </div>
   `
