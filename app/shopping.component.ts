@@ -4,10 +4,13 @@ import { Album } from './album.model';
 @Component ({
   selector: "shopping-cart",
   template: `
-    <div *ngFor="let cartitem of childShoppingCart">
-      <p>Album: {{ cartitem.album }}</p>
+    <div class="col-sm-6">
+      <h2>Current Shopping Cart:</h2>
+      <h3 *ngIf="childShoppingCart.length >= 1">Total Cost: \${{childShoppingCart | cart}}</h3>
+      <div *ngFor="let cartitem of childShoppingCart">
+        <p>Album: {{ cartitem.album }}</p>
+      </div>
     </div>
-    <h2 *ngIf="childShoppingCart.length >= 1">Total Cost: \${{childShoppingCart | cart}}</h2>
   `
 })
 

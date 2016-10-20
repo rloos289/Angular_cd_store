@@ -4,10 +4,10 @@ import { Album } from './album.model';
 @Component({
   selector: 'my-app',
   template: `
-  <h1>My First Angular 2 App</h1>
-  <shopping-cart
-    [childShoppingCart]="shoppingCart"
-  ></shopping-cart>
+  <div class="container">
+    <h1>Best Record Store</h1>
+  </div>
+  <div class="container">
   <list-albums
     (shoppingCartSender)="addCart($event)"
     [childAlbumList]="masterAlbumList"
@@ -17,6 +17,10 @@ import { Album } from './album.model';
   <new-album
     (newAlbum)="addAlbum($event)"
   ></new-album>
+  <shopping-cart
+    [childShoppingCart]="shoppingCart"
+  ></shopping-cart>
+  </div>
   `
 })
 
