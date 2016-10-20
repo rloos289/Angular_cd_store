@@ -37,11 +37,12 @@ export class AppComponent {
     public masterGenreList: string [] = [
       "Bluegrass", "Soul", "Blues", "Folk", "Rock"
   ];
-    public shoppingCart: Album[] = [];
+    public shoppingCart: Album[] = [
+  ];
 
   addCart(newItemFromChild: Album) {
+    console.log("shopping cart" + this.shoppingCart);
     this.shoppingCart.push(newItemFromChild);
-    console.log(this.shoppingCart);
   }
 
   addAlbum(newAlbumFromChild: Album) {
@@ -53,6 +54,6 @@ export class AppComponent {
     if (!this.masterArtistList.includes(newAlbumFromChild.artist))
     {
       this.masterArtistList.push(newAlbumFromChild.artist);
-    }y
+    }
   }
 }

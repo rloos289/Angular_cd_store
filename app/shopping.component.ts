@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Album } from './album.model';
 
 @Component ({
@@ -7,12 +7,11 @@ import { Album } from './album.model';
     <div *ngFor="let cartitem of childShoppingCart">
       <p>Album: {{ cartitem.album }}</p>
     </div>
+    <h2 *ngIf="childShoppingCart.length >= 1">Total Cost: \${{childShoppingCart | cart}}</h2>
   `
 })
 
 export class ShoppingCartComponent {
   @Input() childShoppingCart: Album[];
 
-  // addcost(ShoppingCart) {
-  //   for (var i = 0; i <= ShoppingCart.length; )
-  }
+}

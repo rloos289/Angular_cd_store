@@ -48,5 +48,6 @@ export class ListAlbumComponent {
 
   addCart(album: Album) {
     this.shoppingCartSender.emit(album);
+    console.log("button");
   }
 }

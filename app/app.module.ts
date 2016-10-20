@@ -7,6 +7,7 @@ import { NewAlbumComponent } from './new-album.component'
 import { ArtistPipe } from "./artist.pipe"
 import { GenrePipe } from "./genre.pipe"
 import { ShoppingCartComponent } from "./shopping.component"
+import { CartPipe } from "./cart.pipe"
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ShoppingCartComponent } from "./shopping.component"
     NewAlbumComponent,
     ArtistPipe,
     GenrePipe,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    CartPipe
   ],
   bootstrap:     [ AppComponent ],
 })
