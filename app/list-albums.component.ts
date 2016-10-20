@@ -62,7 +62,7 @@ export class ListAlbumComponent {
 
   addCart(artist: string, album: string, genre: string, price: number) {
     var testAlbum = new Album (artist, album, genre, price);
-    testAlbum.id = this.childCartList.length + 1;
+    testAlbum.id = this.childCartList.length;
     this.shoppingCartSender.emit(testAlbum);
   }
 }

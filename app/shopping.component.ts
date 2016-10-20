@@ -20,7 +20,10 @@ export class ShoppingCartComponent {
   @Output() removeAlbum = new EventEmitter();
 
     removeFromCart(cartArray: Album[], cartitem) {
-      cartArray.splice(cartitem.id - 1, 1);
-      console.log(cartArray);
+      for (let i = 0; i < cartArray.length; i++) {
+          if(cartArray[i].id === cartitem.id) {
+            cartArray.splice(i,1);
+          }
+      }
     }
 }
